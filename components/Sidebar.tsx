@@ -24,6 +24,7 @@ const GenerateSection = (contents: any) => {
           content: React.createElement('div', {}, [<div key={0}>Help document this atom through
             <a key={1} style={{ marginLeft: '5px' }}
               target="_blank"
+              rel="noreferrer"
               href={`https://github.com/bee-mo/vidfmt/issues/new?assignees=&labels=documentation&template=atom-type-documentation.md&title=${atom_name}+Atom`}>the github repository.</a></div>])
         }]
       }
