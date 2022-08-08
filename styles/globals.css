@@ -1,9 +1,40 @@
+@font-face {
+  font-family: 'volk';
+  src: url('../assets/fonts/vollkorn/Vollkorn-Regular.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'lora';
+  src: url('../assets/fonts/lora/Lora-Regular.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'barlow';
+  src: url('../assets/fonts/barlow/Barlow-Light.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensans';
+  src: url('../assets/fonts/opensans/OpenSans-VariableFont_wdth\,wght.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sourcecode';
+  src: url('../assets/fonts/sourcecode/SourceCodePro-VariableFont_wght.ttf');
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family:'barlow', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #fdfdfd;
 }
 
 a {
@@ -23,4 +54,198 @@ a {
     color: white;
     background: black;
   }
+}
+
+.fullscreen-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  border-left: 1px solid #e8e8e8;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.section-title {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-family: 'opensans';
+}
+
+.fullscreen-sidebar .section-title {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-family: 'opensans';
+}
+
+.fullscreen-sidebar .section-body {
+  padding: 15px 25px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.fullscreen-sidebar .section {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fullscreen-sidebar div:last-child {
+  border-bottom: none;
+}
+
+.app-content {
+  width: 450px;
+  margin: 0 auto;
+  transform: translateX(-100px);
+  margin-top: 50px;
+}
+
+.app-content .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'opensans';
+}
+
+
+.tree-explorer .tree-node {
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  position: relative;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  min-width: 200px;
+  width: 200px;
+}
+
+.tree-explorer .tree-node:hover {
+  border: 1px solid #acc0fc;
+}
+
+.tree-explorer .tree-children {
+  position: relative;
+}
+
+/* .tree-explorer .tree-children .roots-of-tree {
+  position: absolute;
+  width: 3px;
+  background-color: #d1d5de;
+  left: -12.5px;
+  z-index: 0;
+  top: -8px;
+} */
+
+.tree-explorer .tree-children .tree-child {
+  position: relative;
+}
+
+.tree-explorer .tree-children .tree-child .roots-of-child-node {
+  width: 100px;
+  position: absolute;
+  background-color: red;
+  z-index: 0;
+  left: -12.5px;
+  top: 20px;
+  height: 3px;
+  background-color: #d1d5de;
+}
+
+.tree-explorer .tree-children .tree-child .roots-of-tree {
+  width: 3px;
+  position: absolute;
+  z-index: 0;
+  left: -15.5px;
+  top: -8px;
+  bottom: -8px;
+  background-color: #d1d5de;
+}
+
+.binary-explorer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 400px;
+  background-color: white;
+  border-top: 1px solid #e8e8e8;
+}
+
+.binary-explorer-views {
+  /* display: grid;
+  grid-template-columns: 230px 230px 230px; */
+  display: flex;
+}
+
+
+.binary-explorer-views .binary-explorer-view {
+  flex-grow: 1;
+  border-right: 1px solid #e8e8e8;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.binary-explorer-views div:last-child {
+  border-right: none;
+}
+
+.binary-view-grid {
+  display: grid;
+  row-gap: 4px;
+  grid-template-columns: 45px 45px 45px 45px 45px 45px 45px 45px;
+  text-align: right;
+  font-family: 'sourcecode';
+}
+
+.binary-view-grid span {
+  font-size: 14px;
+}
+
+.binary-view-grid span.selected {
+  background-color: #d1d5de;
+  display: inline-block;
+}
+
+.button {
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 3px;
+  background-color: #95abdb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.input-element {
+  height: 30px;
+  width: 200px;
+  position: relative;
+}
+
+.input-element input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #c4c4c4;
+}
+
+.input-element .cancel-input {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  line-height: 23px;
+  font-size: 30px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  color: #8d8d8d;
+}
+
+.input-element .cancel-input:hover {
+  color: #5f5f5f;
 }

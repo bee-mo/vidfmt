@@ -1,0 +1,11 @@
+atoms:
+  - ftyp:
+      description: The ftyp atom tells what type of format 
+        this file is and always comes first.
+      alignment:
+        - type: u32
+          label: "major_brand"
+        - type: u32
+          label: "major_version"
+        - type: u32[]
+          label: "compatible_brands"
