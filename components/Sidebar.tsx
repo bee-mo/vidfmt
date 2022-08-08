@@ -21,8 +21,8 @@ const GenerateSection = (contents: any) => {
       if (info == "Undocumented") {
         return [{
           name: `${atom_name} Atom Not Yet Documented`,
-          content: React.createElement('div', {}, [<div>Help document this atom through
-            <a style={{ marginLeft: '5px' }}
+          content: React.createElement('div', {}, [<div key={0}>Help document this atom through
+            <a key={1} style={{ marginLeft: '5px' }}
               target="_blank"
               href={`https://github.com/bee-mo/vidfmt/issues/new?assignees=&labels=documentation&template=atom-type-documentation.md&title=${atom_name}+Atom`}>the github repository.</a></div>])
         }]
