@@ -68,7 +68,7 @@ const SyncScroll = (view1: any, view2: any) => {
   }
 }
 
-const BinaryExplorer = () => {
+const BinaryExplorer = ({ source }: { source: any }) => {
 
   const [buffer, setBuffer] = useState(defaultBuffer());
   const [selectedByte, setSelectedByte] = useState(-1);
@@ -80,38 +80,40 @@ const BinaryExplorer = () => {
   return (<div className="binary-explorer">
     <div className="section-title">Binary Explorer</div>
 
-    <div className="binary-explorer-views">
-      <div className="binary-explorer-view" onScroll={SyncScroll(view2, view3)} ref={view1}>
-        <ViewExplorer buffer={buffer} view_type={ViewType.kBinary}
-          selected_i={selectedByte}
-          onSelect={(i: number) => {
-            return (e: any) => {
-              setSelectedByte(i);
-            }
-          }}
-        />
-      </div>
-      <div className="binary-explorer-view" onScroll={SyncScroll(view1, view3)} ref={view2}>
-        <ViewExplorer buffer={buffer} view_type={ViewType.kChar}
-          selected_i={selectedByte}
-          onSelect={(i: number) => {
-            return (e: any) => {
-              setSelectedByte(i);
-            }
-          }}
-        />
-      </div>
-      <div className="binary-explorer-view" onScroll={SyncScroll(view1, view2)} ref={view3}>
-        <ViewExplorer buffer={buffer} view_type={ViewType.kHex}
-          selected_i={selectedByte}
-          onSelect={(i: number) => {
-            return (e: any) => {
-              setSelectedByte(i);
-            }
-          }}
-        />
-      </div>
-    </div>
+    {source == null ?
+      <div style={{ height: "300px" }}><div className="centered-text">Search for atom</div></div> :
+      <div className="binary-explorer-views">
+        <div className="binary-explorer-view" onScroll={SyncScroll(view2, view3)} ref={view1}>
+          <ViewExplorer buffer={buffer} view_type={ViewType.kBinary}
+            selected_i={selectedByte}
+            onSelect={(i: number) => {
+              return (e: any) => {
+                setSelectedByte(i);
+              }
+            }}
+          />
+        </div>
+        <div className="binary-explorer-view" onScroll={SyncScroll(view1, view3)} ref={view2}>
+          <ViewExplorer buffer={buffer} view_type={ViewType.kChar}
+            selected_i={selectedByte}
+            onSelect={(i: number) => {
+              return (e: any) => {
+                setSelectedByte(i);
+              }
+            }}
+          />
+        </div>
+        <div className="binary-explorer-view" onScroll={SyncScroll(view1, view2)} ref={view3}>
+          <ViewExplorer buffer={buffer} view_type={ViewType.kHex}
+            selected_i={selectedByte}
+            onSelect={(i: number) => {
+              return (e: any) => {
+                setSelectedByte(i);
+              }
+            }}
+          />
+        </div>
+      </div>}
   </div>)
 }
 

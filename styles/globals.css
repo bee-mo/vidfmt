@@ -38,7 +38,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: blue;
   text-decoration: none;
 }
 
@@ -249,3 +249,13 @@ a {
 .input-element .cancel-input:hover {
   color: #5f5f5f;
 }
+
+.centered-text {
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

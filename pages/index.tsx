@@ -19,9 +19,16 @@ const Input = ({ onCancel, onChange }: { onCancel: () => void, onChange: (value:
   </div>);
 }
 
+const FindAtomInfo = (atom: string): any => {
+
+  // default. TODO: find atom info from the /datasource/iso_atoms.yml
+  return { info: "Undocumented", atom_name: atom };
+}
+
 const Home: NextPage = () => {
 
   const [searchingAtoms, setSearchingAtoms] = useState(false)
+  const [atom, setAtom] = useState(null)
 
   return (
     <div>
@@ -32,12 +39,17 @@ const Home: NextPage = () => {
       </Head>
       <div className="app-content" style={{ marginBottom: `500px` }}>
         <div className="logo">vidfmt</div>
+        <div>ISO Base Media File Format Explorer</div>
 
         <div style={{ marginTop: '10px' }}>
           {searchingAtoms ?
             <div><Input
               onChange={(val: string) => {
-                console.log(val);
+                if (val.length == 4) {
+                  setAtom(FindAtomInfo(val));
+                } else {
+                  setAtom(null);
+                }
               }}
               onCancel={() => { setSearchingAtoms(false) }} /></div> :
             <div><Button text="Search Atom" onClick={() => { setSearchingAtoms(true) }} /></div>
@@ -48,8 +60,8 @@ const Home: NextPage = () => {
           <TreeExplorer />
         </div>
       </div>
-      <Sidebar />
-      <BinaryExplorer />
+      <Sidebar contents={atom} />
+      <BinaryExplorer source={atom} />
     </div>
   )
 }
